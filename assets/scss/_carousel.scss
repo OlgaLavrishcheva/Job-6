@@ -1,0 +1,58 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.carousel {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-color: $color-light;
+    box-shadow: 0 10px 20px  -10px $color-indigo;
+}
+
+.carousel::before,
+.carousel::after {
+    position: absolute;
+    background: linear-gradient(to right,  $color-light 0%, transparent 100%);
+    z-index: 1;
+    width: 100px;
+    height: 100%;
+    top: 0;
+}
+
+.carousel::before {
+    left: 0;
+}
+
+.carousel::after {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    animation: slideshow 25s linear infinite;
+}
+
+.slide__image {
+    width: auto;
+    height: calc(100% - 40px);
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+@keyframes slideshow {
+    0% {
+        transform: translatex(0);
+    }
+    100% {
+        transform: translatex(-100%);
+    }
+}
+

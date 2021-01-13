@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $color-gray-light;    
+    min-height: 100vh;
+    font-family: $font-common;
+}
