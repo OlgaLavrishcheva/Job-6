@@ -31,8 +31,10 @@ body {
   background: -o-linear-gradient(left, #a50707, #ffff00, #00ffff, #830683);
   background: linear-gradient(to right, #a50707, #ffff00, #00ffff, #830683);
   -webkit-background-clip: text;
+          background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-animation: name 2s;
+          animation: name 2s;
 }
 
 .arrow {
@@ -107,22 +109,23 @@ body {
 
 @-webkit-keyframes name {
   0% {
-    opacity: 0;
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-    -webkit-transform: scale(2, 2);
-            transform: scale(2, 2);
-    -webkit-filter: blur(90px);
-            filter: blur(90px);
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
   }
   100% {
-    opacity: 1;
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1);
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes name {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }
 
@@ -172,11 +175,12 @@ body {
 
 .carousel::before,
 .carousel::after {
+  content: "";
   position: absolute;
   background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(transparent));
   background: -o-linear-gradient(left, #ffffff 0%, transparent 100%);
   background: linear-gradient(to right, #ffffff 0%, transparent 100%);
-  z-index: 1;
+  z-index: 5;
   width: 100px;
   height: 100%;
   top: 0;
